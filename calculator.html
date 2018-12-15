@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <title>calculator</title>
+
+</head>
+<script type="text/javascript">
+    var calculator = [];
+    function add() {
+        calculator.push(document.getElementById("one").value);
+        calculator.push("+");
+        document.getElementById("one").value = "";
+    }
+    function sub() {
+        calculator.push(document.getElementById("one").value);
+        calculator.push("-");
+        document.getElementById("one").value = "";
+    }
+    function mul() {
+        calculator.push(document.getElementById("one").value);
+        calculator.push("*");
+        document.getElementById("one").value = "";
+    }
+
+    function divide() {
+        calculator.push(document.getElementById("one").value);
+        calculator.push("/");
+        document.getElementById("one").value = "";
+    }
+    function equal() {
+        calculator.push(document.getElementById("one").value);
+        var result = Number(calculator[0]);
+        for (let i = 0; i < calculator.length-1; i = i + 2) {
+            switch (calculator[i + 1]) {
+                case "+":
+                    result = result  + Number(calculator[i + 2]);
+                    break;
+                case "-":
+                    result = result  - Number(calculator[i + 2]);
+                    break;
+                case "*":
+                    result = result  * Number(calculator[i + 2]);
+                    break;
+                case "/":
+                    result = result  / Number(calculator[i + 2]);
+                    break;
+                default:
+                    break;
+            }
+        }
+        document.getElementById("one").value = result;
+        calculator=[]; 
+    }
+</script>
+
+<body>
+
+
+    <input type="text" id="one"/><br /></br></br>
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"1"})()'>1</button>
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"2"})()'>2</button>
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"3"})()'>3</button>
+    <button class="btn" onclick="add()">+</button><br /><br /><br /><br />
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"4"})()'>4</button>
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"5"})()'>5</button>
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"6"})()'>6</button>
+    <button class="btn" onclick="sub()">-</button><br /><br /><br /><br />
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"7"})()'>7</button>
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"8"})()'>8</button>
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"9"})()'>9</button>
+    <button class="btn" onclick="mul()">*</button><br /><br /><br /><br />
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"."})()'>.</button>
+    <button class="btn" onclick='(function(event){document.getElementById("one").value = document.getElementById("one").value+"0"})()'>0</button>
+    <button class="btn" onclick="equal()">=</button>
+    <button class="btn" onclick="divide()">/</button>
+
+</body>
+
+</html>
